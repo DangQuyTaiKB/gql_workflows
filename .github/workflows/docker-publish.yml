@@ -3,6 +3,12 @@ name: Publish Docker image
 on:
   release:
     types: [published]
+  workflow_dispatch:
+    inputs:
+      docker_version_tag:
+        description: 'Extra tag for docker image (version tag)'
+        required: true
+        default: '0.8.5'
 
 jobs:
   push_to_registry:
